@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Tatiana Muntean">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Registration Form</title>
+</head>
+<body>
+    <div class="container"> 
+        <h2>Register With Us</h2>
+        <div class="form-container">
+            <!--<div id="error"></div>-->
+            <form id="form" class="form">
+                <div class="form-control">
+                    <label for="username">Username</label>
+                    <input type="username" id="username" name="username" placeholder="Enter Username">
+                    <small>Error message</small>
+                </div>
+                <div class="form-control">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter Email">
+                    <small>Error message</small>
+                </div>
+                <div class="form-control">
+                    <label for="">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter Password">
+                    <small>Error message</small>
+                    <!--<p>* Password have to include uppercase letters and numbers!</p>-->
+                </div>
+
+                <div class="form-control">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Enter password again">
+                    <small>Error message</small>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
