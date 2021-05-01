@@ -9,6 +9,8 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     checkInputs();
+    checkLength(username, 3, 10);
+    checkLength(password, 8, 20);
 })
 
 function checkInputs() {
@@ -25,7 +27,7 @@ function checkInputs() {
 	
 	if(emailValue === '') {
 		setErrorFor(email, 'Email cannot be blank');
-	} else if (!isEmail(emailValue)) {
+	} else if (!validateEmail(emailValue)) {
 		setErrorFor(email, 'Not a valid email');
 	} else {
 		setSuccessFor(email);
@@ -39,7 +41,7 @@ function checkInputs() {
 	
 	if(confirmPasswordValue === '') {
 		setErrorFor(confirmPassword, 'Confirm password cannot be blank');
-	} else if(passwordValue !== confirmPasswordValue) {
+	} else if(confirmPasswordValue!== passwordValue) {
 		setErrorFor(confirmPassword, 'Passwords does not match');
 	} else{
 		setSuccessFor(confirmPassword);
@@ -61,4 +63,18 @@ function setSuccessFor(input) {
 function validateEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+}
+
+function checkLength(input, minlength, maxlength) {
+    let field = input.value;
+    let minLen = minlength;
+    let maxLen = maxlength;
+
+    if(field.length < minLen || field.length > maxLen) {
+        setErrorFor(input, 'The field must include between' + minLen + 'and' + maxLen + 'characters!');
+        return false;
+    } else {
+        setSuccessFor(input, 'Your input is accepted!');
+        return true;
+    }
 }
